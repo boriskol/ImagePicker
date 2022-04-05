@@ -37,7 +37,8 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
       self.imagePicked = imagePicked
    }
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-      if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+      if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+      //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
          imagePicked.chosenImage = image
       }
       
