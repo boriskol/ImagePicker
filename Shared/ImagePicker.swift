@@ -18,6 +18,16 @@ struct ImagePicker: UIViewControllerRepresentable {
       let myImagePicker = UIImagePickerController()
       myImagePicker.sourceType = sourceType
       myImagePicker.allowsEditing = true
+      if sourceType == UIImagePickerController.SourceType.camera{
+         myImagePicker.showsCameraControls = true
+         myImagePicker.setEditing(true, animated: true)
+         myImagePicker.cameraViewTransform = .identity
+         myImagePicker.isEditing = true
+        
+         myImagePicker.preferredContentSize = CGSize(width: 200, height: 600)
+         myImagePicker.cameraCaptureMode = UIImagePickerController.CameraCaptureMode.photo
+      }
+      
       myImagePicker.delegate = context.coordinator
       return myImagePicker
       
@@ -39,7 +49,8 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
       if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
       //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-         imagePicked.chosenImage = image
+         let watermark = UIImage(systemName: "waveform.path.badge.plus") //UIImage(named: "watermark")
+         imagePicked.chosenImage = image.overlayWith(image: watermark ?? UIImage())
       }
       
       imagePicked.presentationMode.wrappedValue.dismiss()
@@ -51,3 +62,22 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
    }
    
 }
+
+extension UIImage {
+    // overlay any image on my image
+    func overlayWith(image: UIImage) -> UIImage {
+        let newSize = CGSize(width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        
+        draw(in: CGRect(origin: CGPoint.zero, size: size))
+        
+        image.draw(in: CGRect(origin: CGPoint(x: size.width - 200, y: size.height - 100), size: image.size))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+}
+
+

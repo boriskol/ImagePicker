@@ -11,14 +11,14 @@ import UIKit
 struct ContentView: View {
    @State private var showSheet = false
    @State private var image = UIImage()
-   @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+   @State private var sourceType: UIImagePickerController.SourceType = .camera
    
    var body: some View {
       VStack {
          Image(uiImage:self.image)
             .resizable()
             .scaledToFill()
-            .frame(minWidth: 0, maxWidth: .infinity)
+            .frame(width: 200, height: 200)
          HStack {
             Button(action: {
                showSheet = true
