@@ -16,10 +16,8 @@ class ImagePickerViewModel: ObservableObject {
    @Published var sourceType: UIImagePickerController.SourceType = .camera
    
    public func pickAImage(sourceType: UIImagePickerController.SourceType){
-      
       self.showSheet = true
       self.sourceType = sourceType
-     
    }
    
 }

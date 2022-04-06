@@ -49,7 +49,8 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
       if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
       //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-         let watermark = UIImage(systemName: "waveform.path.badge.plus") //UIImage(named: "watermark")
+         let watermark = UIImage(named: "50") //UIImage(named: "watermark")
+         
          imagePicked.chosenImage = image.overlayWith(image: watermark ?? UIImage())
       }
       
@@ -71,7 +72,7 @@ extension UIImage {
         
         draw(in: CGRect(origin: CGPoint.zero, size: size))
         
-        image.draw(in: CGRect(origin: CGPoint(x: size.width - 200, y: size.height - 100), size: image.size))
+        image.draw(in: CGRect(origin: CGPoint(x: size.width - 200, y: size.height - 200), size: CGSize(width: 200, height: 200)))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
