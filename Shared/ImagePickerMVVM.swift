@@ -19,14 +19,7 @@ class ImagePickerViewModel: ObservableObject {
       
       self.showSheet = true
       self.sourceType = sourceType
-     // self.image = 
-      
-      
+     
    }
-   
-   
-   
-   
-   
    
 }
