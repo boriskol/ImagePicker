@@ -9,35 +9,31 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-   @State private var showSheet = false
-   @State private var image = UIImage()
-   @State private var sourceType: UIImagePickerController.SourceType = .camera
+   
+   @ObservedObject private var pickImage = ImagePickerViewModel()
    
    var body: some View {
       VStack {
-         Image(uiImage:self.image)
+         Image(uiImage:self.pickImage.image)
             .resizable()
             .scaledToFill()
             .frame(width: 200, height: 200)
          HStack {
             Button(action: {
-               showSheet = true
-               sourceType = .photoLibrary
+               self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
             }) {
-               Text("Photo library")
-                  .font(.title2)
+               Text("Photo library").font(.title2)
             }
             Spacer()
             Button(action: {
-               showSheet = true
-               sourceType = .camera
+               self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
             }) {
                Text("Camera").font(.title2)
             }
          }.padding()
          
-      }.sheet(isPresented: $showSheet) {
-         ImagePicker(sourceType: sourceType, chosenImage: $image)
+      }.sheet(isPresented: self.$pickImage.showSheet) {
+         ImagePicker(sourceType: self.pickImage.sourceType, chosenImage: self.$pickImage.image)
       }
       
    }

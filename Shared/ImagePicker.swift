@@ -27,7 +27,7 @@ struct ImagePicker: UIViewControllerRepresentable {
          myImagePicker.preferredContentSize = CGSize(width: 200, height: 600)
          myImagePicker.cameraCaptureMode = UIImagePickerController.CameraCaptureMode.photo
       }
-      
+      //myImagePicker.cropSize
       myImagePicker.delegate = context.coordinator
       return myImagePicker
       

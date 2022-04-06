@@ -19,6 +19,8 @@
 		2CF7DCE527FC97AC00643581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7DCBA27FC97AC00643581 /* Assets.xcassets */; };
 		2CF7DCF527FC9A0A00643581 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7DCF427FC9A0A00643581 /* ImagePicker.swift */; };
 		2CF7DCF627FC9A0A00643581 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7DCF427FC9A0A00643581 /* ImagePicker.swift */; };
+		2CFCDA8527FE3210004B7AB8 /* ImagePickerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDA8427FE3210004B7AB8 /* ImagePickerMVVM.swift */; };
+		2CFCDA8627FE3210004B7AB8 /* ImagePickerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDA8427FE3210004B7AB8 /* ImagePickerMVVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		2CF7DCDC27FC97AC00643581 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		2CF7DCDE27FC97AC00643581 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		2CF7DCF427FC9A0A00643581 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2CFCDA8427FE3210004B7AB8 /* ImagePickerMVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerMVVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 				2CF7DCB927FC97AB00643581 /* ContentView.swift */,
 				2CF7DCBA27FC97AC00643581 /* Assets.xcassets */,
 				2CF7DCF427FC9A0A00643581 /* ImagePicker.swift */,
+				2CFCDA8427FE3210004B7AB8 /* ImagePickerMVVM.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -306,6 +310,7 @@
 				2CF7DCF527FC9A0A00643581 /* ImagePicker.swift in Sources */,
 				2CF7DCE227FC97AC00643581 /* ContentView.swift in Sources */,
 				2CF7DCE027FC97AC00643581 /* ImagePickerApp.swift in Sources */,
+				2CFCDA8527FE3210004B7AB8 /* ImagePickerMVVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +321,7 @@
 				2CF7DCF627FC9A0A00643581 /* ImagePicker.swift in Sources */,
 				2CF7DCE327FC97AC00643581 /* ContentView.swift in Sources */,
 				2CF7DCE127FC97AC00643581 /* ImagePickerApp.swift in Sources */,
+				2CFCDA8627FE3210004B7AB8 /* ImagePickerMVVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
