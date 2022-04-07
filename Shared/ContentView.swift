@@ -20,15 +20,30 @@ struct ContentView: View {
             .frame(width: 200, height: 200)
          HStack {
             Button(action: {
-               self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
+               
+               Task {
+                  await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
+               }
+               
             }) {
-               Image(systemName: "photo.circle.fill").font(.title2).foregroundColor(.red)
+               Image(systemName: "photo.circle.fill")
+                  .foregroundColor(.red)
+                  .scaledToFill()
+                  .font(.system(size: 40))
+                  .padding()
             }
             Spacer()
             Button(action: {
-               self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
+               Task {
+                  await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
+               }
+               
             }) {
-               Image(systemName: "camera.circle").font(.title2).foregroundColor(.red)
+               Image(systemName: "camera.circle")
+                  .foregroundColor(.red)
+                  .scaledToFill()
+                  .font(.system(size: 50))
+                  .padding()
             }
          }.padding()
          

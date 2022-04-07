@@ -10,14 +10,14 @@ import UIKit
 
 class ImagePickerViewModel: ObservableObject {
    
-   
    @Published var showSheet = false
    @Published var image = UIImage()
    @Published var sourceType: UIImagePickerController.SourceType = .camera
    
-   public func pickAImage(sourceType: UIImagePickerController.SourceType){
+   @MainActor public func pickAImage(sourceType: UIImagePickerController.SourceType) async {
       self.showSheet = true
       self.sourceType = sourceType
    }
+   
    
 }
