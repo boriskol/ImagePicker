@@ -20,9 +20,12 @@ struct ContentView: View {
             .frame(width: 200, height: 200)
          HStack {
             Button(action: {
-               
                Task {
-                  await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
+                  do {
+                     try await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
+                  } catch {
+                     print(error)
+                  }
                }
                
             }) {
@@ -35,7 +38,11 @@ struct ContentView: View {
             Spacer()
             Button(action: {
                Task {
-                  await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
+                  do {
+                     try await self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
+                  } catch {
+                     print(error)
+                  }
                }
                
             }) {

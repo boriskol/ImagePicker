@@ -27,7 +27,6 @@ struct ImagePicker: UIViewControllerRepresentable {
          myImagePicker.preferredContentSize = CGSize(width: 200, height: 600)
          myImagePicker.cameraCaptureMode = UIImagePickerController.CameraCaptureMode.photo
       }
-      //myImagePicker.cropSize
       myImagePicker.delegate = context.coordinator
       return myImagePicker
       
@@ -50,12 +49,9 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
       if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
       //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
          let watermark = UIImage(named: "50") //UIImage(named: "watermark")
-         
          imagePicked.chosenImage = image.overlayWith(image: watermark ?? UIImage())
       }
-      
       imagePicked.presentationMode.wrappedValue.dismiss()
-      
    }
    
    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
