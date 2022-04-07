@@ -22,13 +22,13 @@ struct ContentView: View {
             Button(action: {
                self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
             }) {
-               Text("Photo library").font(.title2)
+               Image(systemName: "photo.circle.fill").font(.title2).foregroundColor(.red)
             }
             Spacer()
             Button(action: {
                self.pickImage.pickAImage(sourceType: UIImagePickerController.SourceType.camera)
             }) {
-               Text("Camera").font(.title2)
+               Image(systemName: "camera.circle").font(.title2).foregroundColor(.red)
             }
          }.padding()
          
